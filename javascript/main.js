@@ -2,18 +2,44 @@ const prevBtns = document.querySelectorAll(".btn-prev");
 const nextBtns = document.querySelectorAll(".btn-next");
 const progress = document.getElementById(".progress");
 const formSteps = document.querySelectorAll(".form-step");
+const progressSteps = document.querySelectorAll(".progress-step");
 
 let formStepsNum = 0;
 
-nextBtns.forEach(btn => {
+nextBtns.forEach((btn) => {
   btn.addEventListener("click", () => {
     // move from one step to another
     formStepsNum++;
     updateFormSteps();
+    updateProgressBar();
+  });
+});
+
+prevBtns.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    // move the previous step
+    formStepsNum--;
+    updateFormSteps();
+    updateProgressBar();
   });
 });
 
 function updateFormSteps(){
-  formSteps[formStepsNum].classList.add("form-step-active")
+  // hide previous features/steps if an element contains active state
+  formSteps.forEach((formStep) => {
+    formStep.classList.contains("form-step-active") &&
+    formStep.classList.remove("form-step-active");
+  });
+  formSteps[formStepsNum].classList.add("form-step-active");
+}
+
+function updateProgressBar(){
+  progressSteps.forEach((progressStep, idx) => {
+    if(idx < formStepsNum + 1){
+      progressStep.classList.add("progress-step-active");
+    }else{
+      progressStep.classList.remove("progress-step-active");
+    }
+  })
 }
 
