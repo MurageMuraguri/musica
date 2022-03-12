@@ -40,7 +40,7 @@
        <input type="text" class="search-txt" placeholder="Search...">
      </div>
      <div class="header-item profile-group">
-       <button class="profile-item upload-btn">Upload</button>
+       <a href="#upload-popup" class="profile-item upload-btn">Upload</a>
        <span class="profile-item">Mbithi</span>
        <span class="profile-item">Logout</span>
        
@@ -48,16 +48,47 @@
    </div>
   </header>
 
-  <section>
+  <section class="section-uploads">
     <!-- 
       My uploads
       ----------
       ----------
       # Icon  Title  Date added
      -->
+     <h1 class="upload-title">My Uploads</h1>
+
+     <div class="song-list">
+       <table class="song-tbl">
+         <thead>
+           <tr>
+             <th class="tbl-title">#</th>
+             <th class="tbl-title">Title</th>
+             <th class="tbl-title">Date Added</th>
+           </tr>
+         </thead>
+
+         <tbody>
+           <tr>
+             <td>1</td>
+             <td>Age to Age</td>
+             <td>July 14, 2021</td>
+           </tr>
+           <tr>
+            <td>2</td>
+            <td>My City</td>
+            <td>July 14, 2021</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Nairobi</td>
+            <td>July 14, 2021</td>
+          </tr>
+         </tbody>
+       </table>
+     </div>
   </section>
 
-  <section>
+  <section class="upload-popup" id="upload-popup">
     <!-- 
       * popup
         * form
@@ -66,6 +97,52 @@
           * checks - checking for fingerprints - No issues found
           * publish - schedule (radio-btn) - publish btn (submits form)
      -->
+     <form class="popup-content" action="">
+      <a href="#section-uploads" class="popup-close">×</a>
+      <!-- progress bar -->
+      <div class="progress-bar">
+        <div class="progress" id="progress"></div>
+        <div class="progress-step progress-step-active" data-title="Upload"></div>
+        <div class="progress-step" data-title="Check"></div>
+        <div class="progress-step" data-title="Publish"></div>
+      </div>
+      <!-- Steps -->
+       <div class="upload-section form-step-active">
+         <h2>UPLOAD</h2>
+
+         <div class="upload-box">
+           <input type="file" name="choose file" id="">
+         </div>
+         <div class="btn-group">
+           <a class="next-btn btn-next">Next</a>
+         </div>
+       </div>
+
+       <div class="upload-section form-step">
+        <h2>CHECK FINGERPRINT</h2>
+
+        <div class="upload-box">
+          <input type="file" name="choose file" id="">
+        </div>
+        <div class="btn-group">
+          <a class="next-btn btn-prev">Previous</a>
+          <a class="next-btn btn-next">Next</a>
+        </div>
+      </div>
+
+      <div class="upload-section form-step">
+        <h2>PUBLISH</h2>
+
+        <div class="upload-box">
+          <input type="file" name="choose file" id="">
+        </div>
+        <div class="btn-group">
+          <a class="next-btn btn-prev" href="">Previous</a>
+          <input type="submit" class="next-btn" value="Publish">
+        </div>
+      </div>
+
+     </form>
   </section>
   
   <script src="./javascript/main.js"></script>

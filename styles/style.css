@@ -8,7 +8,9 @@ html, body{
   box-sizing: border-box;
   font-size: 62.5%;
   font-family: sans-serif;
-  background-color: rgb(21, 1, 27);
+  background-color: #15011b;
+  color: #fff;
+  
 }
 
 .header-group{
@@ -60,16 +62,174 @@ html, body{
 
 .upload-btn{
   border-radius: 30px;
-  height: 2.5rem;
+  /* height: 2.5rem; */
   border: none;
-  width: 6rem;
+  /* width: 6rem; */
   background-color: #55cfff;
   color: #fff;
-  cursor: pointer;
+  padding: .5rem .8rem;
+  text-decoration: none;
 }
 
 .profile-item{
   font-size: 1.5rem;
   margin: 0 .5rem;
   cursor: pointer;  
+}
+
+.section-uploads{
+  margin: 2rem;
+}
+
+.upload-title{
+  font-size: 2rem;
+}
+
+.song-list{
+  font-size: 1.4rem;
+  margin: 2rem;
+}
+
+.music-logo{
+  width:30px;
+}
+
+.tbl-title{
+  padding-right: 10rem;
+}
+
+.upload-popup{
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 999; 
+
+  opacity: 0; 
+  visibility: hidden;
+  transition: all .3s;
+}
+
+.upload-popup:target{
+  opacity: 1;
+  visibility: visible;
+}
+
+.popup-close:link, .popup-close:visited {
+  text-decoration: none;
+  color: #000;
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  font-size: 2rem;
+}
+
+.popup-content{
+  border-radius: 10px;
+  font-size: .85rem;
+  line-height: 1.3;
+  padding: 0 10px;
+  min-width: 60rem;
+  /* height: 25rem; */
+  background-color: #fff;
+  box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.2);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #000;
+}
+
+.form-step{
+  display: none;
+}
+
+.form-step-active{
+  display: block;
+}
+
+/* Progress bar */
+.progress-bar{
+  margin: 5rem;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  /* setting the counter variable */
+  counter-reset: step;
+}
+
+.progress-bar::before, .progress{
+  content: "";
+  position: absolute;
+  top:50%;
+  transform: translateY(-50%);
+  height: 4px;
+  width: 100%;
+  background-color: #dcdcdc;
+  z-index: -1;
+}
+
+.progress{
+  background-color: #55cfff;
+  width: 0%;
+}
+
+.progress-step{
+  width: 3.5rem;
+  height: 3.5rem;
+  background-color: #dcdcdc;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+}
+
+.progress-step::before{
+  /* increment the step counter by one */
+  counter-increment: step;
+  content: counter(step);
+  font-size: 1.2rem;  
+}
+
+.progress-step::after{
+  /* get content from the HTML attribute */
+  content: attr(data-title);
+  position: absolute;
+  font-size: 1.2rem;
+  /* set labels below the steps */
+  top: calc(100% + 0.75rem);
+  color: #777;
+}
+
+.progress-step-active{
+  background-color: #55cfff;
+  color: #fff;
+}
+
+.upload-section{
+  margin-top: 2rem;
+}
+
+.upload-box{
+  height: 20rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.next-btn{
+  text-decoration: none;
+  background-color: #15011b;
+  color: #fff;
+  padding: .5rem 1rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+  
+}
+
+.btn-group{
+  margin: 2rem;
+  float: right;
 }
